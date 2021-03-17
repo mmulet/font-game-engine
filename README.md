@@ -2,7 +2,7 @@ Project structure. Included is a suite of tools to create font games.
 
 # Tutorial:
 
-For a quick tutorial about how to make your own game go here: TODO
+For a quick tutorial about how to make your own game [go here](https://github.com/mmulet/code-relay/blob/main/markdown/Tutorial.md)
 
 # For developers:
 
