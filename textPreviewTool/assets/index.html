@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Fontemon text Preview tool</title>
+    <style>
+        .bordered {
+            background-color: white;
+            max-width: fit-content;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative; z-index: 5; display: flex; flex-flow: column; align-items: center;">
+        <h1 class="bordered">
+            Fontemon text preview tool
+        </h1>
+        <div class="bordered">
+            <label>Background Animation:</label>
+            <button id="toggle-animation">Toggle</button>
+            <label>Turn on for some cool, 90's style, fun</label>
+        </div>
+        <div class="bordered">
+            <canvas id="canvas" width="400" height="150"></canvas>
+        </div>
+        <div class="bordered">
+            <textarea id="area" style="font: 13.333px monospace;"></textarea>
+        </div>
+        <div class="bordered">
+            <label for="spacing-x">Spacing X</label>
+            <input type="number" id="spacing-x" min="0" value="10" />
+        </div>
+        <div class="bordered">
+            <label for="line-width">Line Width (characters)</label>
+            <input type="number" id="line-width" min="1" value="17" />
+        </div>
+        <div class="bordered">
+            <label for="bottom-line-height">Bottom Line Distance</label>
+            <input type="number" id="bottom-line-height" max="0" value="-12" />
+        </div>
+        <div class="bordered">
+            <label for="word-based">Word Based</label>
+            <input type="checkbox" id="word-based" checked />
+        </div>
+        <div class="bordered">
+            <button id="transform-button">Transform output</button>
+        </div>
+        <div id="copied" class="bordered">
+
+        </div>
+    </div>
+    <img style="display:none" id="code-relay-01" src="/codeRelayLogo20000.png" width="128" height="64" />
+    <img style="display:none" id="code-relay-02" src="/codeRelayLogo30000.png" width="128" height="64" />
+    <img style="display:none" id="code-relay-03" src="/codeRelayLogo40000.png" width="128" height="64" />
+    <img style="display:none" id="code-relay-04" src="/codeRelayLogo50000.png" width="128" height="64" />
+    <img style="display:none" id="fontemon" src="/fontemonLogo.png" width="128" height="64" />
+    <script type="module" src="/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+node_modules
+fontemon_blender_addon.zip
+gameToFont/output/*
+gameToFont/intermediate/*
+imageToCharStringConverter/cli/js/*
+textPreviewTool/js/*
+imageToCharStringConverter/gui/js*
+imageToCharStringConverter/gui/dev/js*
+imageToCharStringConverter/gui/api/js*
+gameToFont/js
+util/blackjack/js/*
+util/blackjack/out/*
+util/ora-to-png/js/*
+.vscode
+from .vscode
+__pycache__
+blender/saveFiles/*
+*.tsbuildinfo

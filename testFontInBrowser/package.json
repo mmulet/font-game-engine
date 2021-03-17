@@ -1,0 +1,18 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "This is a small web page to test your font. Assumes you already built your font, and that it is saved in ${projectRoot}/output/out.otf",
+  "main": "./dev/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "host": "node ./dev/index.js"
+  },
+  "author": "",
+  "license": "GPL3",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1",
+    "open": "^7.4.0",
+    "project-directories": "file:../lib/project-directories"
+  }
+}

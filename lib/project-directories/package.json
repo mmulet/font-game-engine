@@ -1,0 +1,13 @@
+{
+  "name": "project-directories",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "node ./generate/index.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "GPL3"
+}

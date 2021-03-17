@@ -1,0 +1,11 @@
+{
+  "include": ["blender/fontemon_blender_addon"],
+  "exclude": ["blender/fontemon_blender_addon/fontTools"],
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "stubPath": "python/stubs",
+  "typeCheckingMode": "strict",
+  "reportUnusedCallResult": true,
+  "reportImplicitStringConcatenation": true,
+  "reportCallInDefaultInitializer": true
+}

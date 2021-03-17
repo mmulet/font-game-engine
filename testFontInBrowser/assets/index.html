@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>TestPage</title>
+    <style>
+        @font-face {
+            font-family: "testFont";
+            src: url("/out.otf");
+        }
+
+        .test {
+            font-family: "testFont", sans-serif;
+            min-width: 50px;
+            min-height: 50px;
+            font-variant-ligatures: discretionary-ligatures;
+            /* caret-color: transparent; */
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="container">
+        <div>
+            test:
+        </div>
+        <div class="test" id="test" contenteditable
+            style="min-height: 250px; font-size: 100px;outline: 0px solid transparent; "></div>
+        <div>
+            control:
+        </div>
+        <div>
+            Type here for debug purposes. Or use the content editable div above
+        </div>
+        <textarea id="area"></textarea>
+    </div>
+    <script>
+        window.onload = () => {
+            const area = document.getElementById("area")
+            const testDiv = document.getElementById("test")
+            area.addEventListener("input", () => {
+                const text = area.value
+                testDiv.innerText = text.replace(/\s/g, "_")
+            })
+            testDiv.addEventListener("input", () => {
+                area.value = testDiv.innerText
+            })
+
+        }
+    </script>
+
+</body>
+
+</html>

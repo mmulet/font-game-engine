@@ -1,0 +1,20 @@
+{
+  "name": "textpreviewtool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "tsc",
+    "host": "node ./dev/index.js"
+  },
+  "author": "",
+  "license": "GPL3",
+  "type": "module",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "open": "^7.3.1",
+    "project-directories": "file:../lib/project-directories",
+    "typescript": "^4.2.3"
+  }
+}

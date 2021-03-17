@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>TestPage</title>
+    <style>
+        .test {
+            font-family: "loadedFont", sans-serif;
+            min-width: 50px;
+            min-height: 50px;
+            font-variant-ligatures: discretionary-ligatures;
+            /* caret-color: transparent; */
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="container">
+        <div>
+            test:
+        </div>
+        <div style="min-height: 250px;" id="loading">
+            Loading..
+        </div>
+        <div class="test" id="test" contenteditable
+            style="min-height: 250px; font-size: 100px;outline: 0px solid transparent; display: none; "></div>
+        <div>
+            control:
+        </div>
+        <div>
+            Type here for debug purposes. Or use the content editable div above
+        </div>
+        <textarea id="area"></textarea>
+        <div id="export-num">Export Number: </div>
+    </div>
+    <script>
+        window.onload = async () => {
+            let polling = false
+            const exportNumberElement = document.getElementById("export-num")
+            const url = new URL(document.URL)
+            const maybeExportNum = parseInt(url.searchParams.get("num") ?? "0")
+            const export_number = isNaN(maybeExportNum) ? 0 : maybeExportNum
+            exportNumberElement.innerText = `Export Number: ${export_number}`
+
+
+            setInterval(async () => {
+                if (polling) {
+                    return
+                }
+                polling = true
+                const response = await fetch("/reloadPreview", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        export_number
+                    })
+                }).then(b => b.json())
+                if (!response.should_reload) {
+                    polling = false
+                    return
+                }
+                url.searchParams.set("num", response.export_num)
+                window.location = url.toString()
+            }, 500)
+            const area = document.getElementById("area")
+            const testDiv = document.getElementById("test")
+            try {
+                const text = localStorage.getItem("test-text")
+                console.log(text)
+                if (text != undefined) {
+                    testDiv.innerText = text
+                    area.value = text
+                }
+            } catch (err) {
+
+            }
+
+            area.addEventListener("input", () => {
+                const text = area.value
+                testDiv.innerText = text.replace(/\s/g, "_")
+                try {
+                    localStorage.setItem("test-text", text)
+                } catch (err) {
+
+                }
+            })
+            testDiv.addEventListener("input", () => {
+                area.value = testDiv.innerText
+                try {
+                    localStorage.setItem("test-text", testDiv.innerText)
+                } catch (err) {
+
+                }
+            })
+            const font = new FontFace("loadedFont", `url("/getFont")`)
+            await font.load()
+            document.getElementById("loading").remove()
+            testDiv.style.display = "unset"
+            document.fonts.add(font)
+
+        }
+    </script>
+
+</body>
+
+</html>

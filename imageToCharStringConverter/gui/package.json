@@ -1,0 +1,20 @@
+{
+  "name": "gui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dev/index.js",
+  "scripts": {
+    "postinstall": "tsc && cd dev && npm install . && tsc",
+    "gui": "node ./dev/js/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL3",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "open": "^8.0.2",
+    "project-directories": "file:../../lib/project-directories",
+    "typescript": "^4.2.3"
+  }
+}
