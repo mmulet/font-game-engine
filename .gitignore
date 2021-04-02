@@ -1,5 +1,4 @@
 node_modules
-fontemon_blender_addon.zip
 gameToFont/output/*
 gameToFont/intermediate/*
 imageToCharStringConverter/cli/js/*
